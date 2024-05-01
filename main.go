@@ -2,13 +2,16 @@ package main
 
 import (
 	"fmt"
-	"project/src"
+
+	"Go-Project/src"
+	"Go-Project/stores"
 )
 
 func main() {
-	svc := src.Service.New(models.stub.stubStore)
+	store := &stores.Stub{}
 
-	fmt.Print(svc.store.get_dataset("cpih"))
-	fmt.Print(svc.store.get_datasets())
+	svc := src.New(store)
 
+	dataset := svc.Store.GetDataset("cpih")
+	fmt.Print(dataset)
 }

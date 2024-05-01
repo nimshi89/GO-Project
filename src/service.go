@@ -1,20 +1,20 @@
 package src
 
-import "project/models"
+import (
+	"Go-Project/models"
+)
 
 type datasetStore interface {
-	get_datasets() models.Dataset
-	get_datset(id string) models.Datasets
+	GetDatasets() models.Datasets
+	GetDataset(id string) models.Dataset
 }
 
 type Service struct {
-	store *datasetStore
+	Store datasetStore
 }
 
 // New creates a new service
-func New(store_m *datasetStore) *Service {
-	svc := &Service{
-		store: store_m,
-	}
+func New(store_m datasetStore) *Service {
+	svc := &Service{Store: store_m}
 	return svc
 }
